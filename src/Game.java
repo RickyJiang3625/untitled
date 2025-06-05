@@ -26,8 +26,15 @@ class Game {
                 System.out.println("  Server " + s.name + " HP: " + s.hp);
             }
 
-            p.earnIncome();
-            System.out.println(p.name + " earns income. Money: $" + p.money);
+            int income = 0;
+            for (Server s : p.servers) {
+                if (s.hp > 0) {
+                    int randomIncome = 10 + rand.nextInt(21);
+                    p.money += randomIncome;
+                    income += randomIncome;
+                }
+            }
+            System.out.println(p.name + " earns income. Money: $" + p.money + " (this round: $" + income + ")");
 
             if (p.money >= serverCost) {
                 Server newServer = new Server("Server-" + (p.servers.size() + 1));
