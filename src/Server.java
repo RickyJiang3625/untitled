@@ -4,6 +4,7 @@ class Server {
 
     public Server(String name) {
         this.name = name;
+        this.hp=100;
     }
 
     public void takeDamage(int damage) {
